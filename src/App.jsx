@@ -31,12 +31,12 @@ function App() {
 
   const addTodo = (todo) => {
     const newId = id + 1;
-    setId(newId);
-
     const updatedTodoList = [...todoList, {
-      id: id,
+      id: newId,
       description: todo
     }];
+
+    setId(newId);
     setTodoList(updatedTodoList);
   }
 
