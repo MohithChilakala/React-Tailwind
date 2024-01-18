@@ -1,9 +1,9 @@
 import { forwardRef } from "react";
 import TodoCard from "./todo-card";
 
-const TodoList = forwardRef(({ todoList, deleteTodo }, ref) => {   
+const TodoList = forwardRef(({ todoList, deleteTodo }, ref) => {
   return (
-    <div className="overflow-y-auto max-h-[70vh] mt-2">
+    <div className="overflow-y-auto max-h-[70vh] mt-16">
       <h2 className="text-4xl font-semibold text-center text-white pt-7">
         Your Todo's
       </h2>
