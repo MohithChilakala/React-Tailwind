@@ -41,7 +41,7 @@ function App() {
   }
 
   return (
-    <div className="w-screen min-h-screen max-h-full bg-sky-900">
+    <div className="w-screen min-h-screen max-h-full bg-gray-950">
       <Navbar />
       <TodoList todoList={todoList} deleteTodo={deleteTodo} />
       <CreateTodo addTodo={addTodo} />
