@@ -1,7 +1,7 @@
 import Navbar from "./component/navbar/navbar";
 import CreateTodo from "./component/new-todo/create-todo";
 import TodoList from "./component/todo/todoList";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 function App() {
   const [id, setId] = useState(4);
@@ -23,12 +23,13 @@ function App() {
       description: "NextJs",
     },
   ]);
-
+  
+  const todoListEndRef = useRef();
   const deleteTodo = (id) => {
     const updatedTodoList = todoList.filter(todo => todo.id !== id);
     setTodoList(updatedTodoList);
   }
-
+  
   const addTodo = (todo) => {
     const newId = id + 1;
     const updatedTodoList = [...todoList, {
@@ -38,12 +39,16 @@ function App() {
 
     setId(newId);
     setTodoList(updatedTodoList);
+
+    setTimeout(() => {
+      todoListEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }, 100)
   }
 
   return (
-    <div className="w-screen min-h-screen max-h-full bg-gray-950">
+    <div className="w-screen max-h-full min-h-screen overflow-hidden bg-gray-950">
       <Navbar />
-      <TodoList todoList={todoList} deleteTodo={deleteTodo} />
+      <TodoList ref={todoListEndRef} todoList={todoList} deleteTodo={deleteTodo} />
       <CreateTodo addTodo={addTodo} />
     </div>
   );

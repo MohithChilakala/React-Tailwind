@@ -20,7 +20,7 @@ const CreateTodo = ({addTodo}) => {
       <input 
         type={"text"}
         value={todo}
-        className="w-1/3 min-w-80 h-9 mt-2 pl-4 text-gray-200 outline-none bg-gray-800 opacity-75 rounded-md"
+        className="w-1/3 pl-4 mt-2 text-gray-200 bg-gray-800 rounded-md outline-none opacity-75 min-w-80 h-9"
         onChange={handleChange}
         onKeyDown={handleKeyDown}
       />
