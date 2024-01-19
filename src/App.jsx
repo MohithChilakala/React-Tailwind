@@ -1,14 +1,10 @@
-import {
-  Navigate,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
+import { Navigate, Route, BrowserRouter as Router,  Routes } from "react-router-dom";
 import Navbar from "./component/navbar/navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Service from "./pages/Service";
+import PageNotFound from "./pages/page-not-found";
 
 function App() {
   return (
@@ -22,6 +18,8 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Service />} />
+            <Route path="/404" element={<PageNotFound />} />
+            <Route path="*" element={<Navigate to="/404" />} />
           </Routes>
         </div>
       </div>
