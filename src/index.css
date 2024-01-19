@@ -14,3 +14,21 @@
 ::-webkit-scrollbar-track {
   background-color: rgb(3, 7, 18);
 }
+
+img {
+  user-select: none;
+}
+
+.fade-right {
+  opacity: 0;
+  transform: translateX(35vw);
+  transition: opacity 0.3s ease-out, transform 0.3s ease-in;
+}
+
+.close-up {
+  height: 0px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+  transition: all 0.2s ease;
+}

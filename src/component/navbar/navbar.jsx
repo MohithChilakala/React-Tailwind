@@ -1,54 +1,44 @@
 import { useState } from "react";
 import person from "../../assets/person.svg";
 import menu from "../../assets/hamburgerMenu.svg";
+import { Link, useLocation } from "react-router-dom";
 
 const isLoggedin = false;
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 const Navbar = () => {
-  const [navItems, setNavItems] = useState([
-    { name: "Home", href: "#home", current: true },
-    { name: "About", href: "#about", current: false },
-    { name: "Services", href: "#services", current: false },
-    { name: "Contact", href: "#contact", current: false },
+  const location = useLocation();
+  const [navItems] = useState([
+    { name: "Home", to: "/home" },
+    { name: "About", to: "/about" },
+    { name: "Services", to: "/services" },
+    { name: "Contact", to: "/contact" }
   ]);
   const [showMenu, setMenu] = useState(false);
 
-  function updateNav(name) {
-    const updatedNav = navItems.map((navItem) => ({
-      ...navItem,
-      current: navItem.name === name,
-    }));
-    setNavItems(updatedNav);
-  }
+  const updateNav = (name) => {
+    setMenu(false);
+  };
 
   return (
-    <nav className="w-full pl-12 pr-[3%] py-2.5 bg-gray-800 flex justify-between absolute">
+    <nav className="w-full pl-12 pr-[3%] py-2.5 bg-gray-800 flex justify-between absolute top-0">
       <div className="flex flex-col sm:flex-row">
-        <h1 className="text-3xl text-white select-none">Todo&nbsp;List</h1>
+        <h1 className="text-3xl select-none">Todo&nbsp;List</h1>
         <ul
-          className={classNames(
-            showMenu ? "" : "hidden",
-            "space-y-2 mt-3 sm:mt-0 sm:space-y-0 sm:flex sm:ml-20 sm:space-x-4 sm:items-center sm:flex-row"
-          )}
+          className={`${
+            showMenu ? "" : "hidden"
+          } space-y-2 mt-3 sm:mt-0 sm:space-y-0 sm:flex sm:ml-20 sm:space-x-4 sm:items-center sm:flex-row`}
         >
           {navItems.map((navItem) => (
             <li key={navItem.name}>
-              <a
-                href={navItem.href}
-                className={classNames(
-                  navItem.current
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-400 hover:bg-gray-700 hover:text-white",
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 ease-in-out select-none"
-                )}
+              <Link
+                to={navItem.to}
+                className={`${
+                  location.pathname === navItem.to ? "bg-gray-900" : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                } rounded-md px-3 py-2 text-sm font-medium transition-colors duration-300 ease-in-out select-none`}
                 onClick={() => updateNav(navItem.name)}
               >
                 {navItem.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -58,11 +48,11 @@ const Navbar = () => {
           <img
             src={person}
             alt="Account"
-            className="invert h-max my-auto p-[1px] border-white select-none"
+            className="invert h-max my-auto p-[1px] border-white"
           />
         </div>
       ) : (
-        <div className="text-gray-400 cursor-pointer hover:text-white h-max mt-2 font-semibold transition-colors duration-[400ms]">
+        <div className="text-gray-400 cursor-pointer hover:text-white h-max mt-2 font-semibold transition-colors duration-[400ms] select-none">
           SignUp / Login
         </div>
       )}

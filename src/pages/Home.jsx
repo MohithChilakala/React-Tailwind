@@ -1,4 +1,3 @@
-import Navbar from "../component/navbar/navbar";
 import CreateTodo from "../component/new-todo/create-todo";
 import TodoList from "../component/todo/todoList";
 import { useRef, useState } from "react";
@@ -46,8 +45,7 @@ function Home() {
   }
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-gray-950">
-      <Navbar />
+    <div className="overflow-hidden bg-gray-950">
       <TodoList ref={todoListEndRef} todoList={todoList} deleteTodo={deleteTodo} />
       <CreateTodo addTodo={addTodo} />
     </div>
