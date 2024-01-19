@@ -33,7 +33,7 @@ const NavItems = () => {
                   ? "bg-gray-900 max-sm:bg-gray-700"
                   : "text-gray-400 hover:bg-gray-700 hover:text-white"
               } sm:rounded-md sm:px-3 py-2 text-sm font-medium transition-colors duration-300 ease-in-out select-none
-                max-sm:w-full max-sm:inline-block`
+                max-sm:w-full max-sm:inline-block max-sm:text-lg max-sm:py-4`
             }
             >
               {navItem.name}
