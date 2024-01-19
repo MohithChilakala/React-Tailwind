@@ -17,7 +17,7 @@ const NavItems = () => {
       <ul
         className={`${showMenu ? "" : "max-sm:hidden"} 
           flex sm:ml-20 sm:space-x-4 sm:items-center
-          max-sm:absolute max-sm:left-0 max-sm:top-0 max-sm:w-2/5 max-sm:h-screen max-sm:mt-14
+          max-sm:absolute max-sm:left-0 max-sm:top-0 max-sm:w-2/3 max-sm:h-screen max-sm:mt-14
           max-sm:z-10 max-sm:bg-gray-600 max-sm:flex-col max-sm:items-center`
         }
       >
