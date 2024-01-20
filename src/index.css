@@ -35,7 +35,7 @@ img {
 
 .card {
   background-color: rgba(20, 25, 40, 0.98);
-  box-shadow: -3px 10px 30px rgba(255, 255, 255, 0.05);
+  box-shadow: -3px 8px 10px rgba(255, 255, 255, 0.05);
 }
 
 input {
