@@ -1,6 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import CreateTodo from "../component/new-todo/create-todo";
 import TodoList from "../component/todo/todoList";
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 
 function Home() {
   const [id, setId] = useState(4);
@@ -22,8 +23,9 @@ function Home() {
       description: "NextJs",
     },
   ]);
-  
+
   const todoListEndRef = useRef();
+
   const deleteTodo = (id) => {
     const updatedTodoList = todoList.filter(todo => todo.id !== id);
     setTodoList(updatedTodoList);

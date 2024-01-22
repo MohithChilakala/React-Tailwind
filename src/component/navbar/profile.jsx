@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
 
-var name = "Mohi";
-var mail = "";
-const Profile = () => {
+const Profile = ({name, mail, handleLogout}) => {
   const [username, setUsername] = useState(name);
   const [email, setEmail] = useState(mail);
 
@@ -43,15 +41,19 @@ const Profile = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             onKeyDown={handleEmailKeyDown}
-            className="bg-transparent text-sm text-[#999] overflow-hidden sm:w-[10.5rem] max-sm:w-[8.9rem]"
+            className="bg-transparent text-sm text-[#999] overflow-hidden
+              sm:w-[10.5rem] max-sm:w-[8.9rem]"
             ref={emailRef}
           />
-          <button className="select-none text-sm text-[#999]">
+          <button className="select-none text-sm text-[#999] hover:text-[#DDD]">
             Change password
           </button>
         </div>
         <div className="flex justify-center">
-          <button className="pt-1 px-2 text-[#AAA] hover:text-[#EEE] font-bold select-none">
+          <button 
+            onClick={handleLogout}
+            className="pt-1 px-2 text-[#AAA] hover:text-[#EEE] font-bold select-none"
+          > 
             Logout
           </button>
         </div>

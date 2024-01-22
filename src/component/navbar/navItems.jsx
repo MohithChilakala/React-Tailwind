@@ -22,7 +22,7 @@ const NavItems = () => {
           max-sm:transition-[left] max-sm:duration-300 max-sm:ease-in-out`
         }
       >
-        {navItems.map((navItem) => (
+        {navItems.map((navItem) => 
           <li 
             key={navItem.name} onClick={() => setMenu(false)}
             className="max-sm:w-full max-sm:text-center">
@@ -40,7 +40,7 @@ const NavItems = () => {
               {navItem.name}
             </Link>
           </li>
-        ))}
+        )}
       </ul>
       <img
         src={menu}
